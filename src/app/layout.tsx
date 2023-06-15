@@ -1,7 +1,9 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { TaskProvider } from '@/context/TasksContext'
+import Link from 'next/link'
+import Layout from '@/components/Layout'
+import Navigation from '@/components/Navigation'
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +17,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className='bg-teal-600'>
+
+              
+        <TaskProvider>
+          <Navigation/> 
+          <Layout>
+            {children}
+          </Layout>
+        </TaskProvider>
+               
+          
+      </body>
     </html>
   )
 }
